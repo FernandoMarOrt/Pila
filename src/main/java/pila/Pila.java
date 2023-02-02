@@ -5,6 +5,7 @@
 package pila;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
@@ -27,16 +28,15 @@ public class Pila<T> {
 
     //B) Push de la pila (apilar elemento (en inglés push), lo inserta donde proceda)
     public void pilaPush(T Elemento) {
-        
-        this.nuevaPila.add(Elemento); 
+
+        this.nuevaPila.add(Elemento);
 
     }
 
     //C) Pop de la pila (desapilar (en inglés pop), que saca el elemento que toque.)
-    public void pilaPop() {
-        
-        
+    public void pilaPop() { //SIN ACABAR
 
+        //t[]
     }
 
     //D) Pila vacia (Saber si la pila está vacía.)
@@ -61,34 +61,42 @@ public class Pila<T> {
 
     }
 
-    
     //F Pila Numero elementos(Saber el número de elementos que contiene la pila.)
     public int pilaNElmentos() {
-        
+
         return this.nuevaPila.size();
-        
+
     }
-    
+
     //G) Mostrar por consola los elementos 
-    public void pilaMostrarElementos(T[] aux){
-        
-        for (int i = aux.length -1; i > 0; i--) {
-            
+    public void pilaMostrarElementos(T[] aux) {
+
+        for (int i = aux.length - 1; i > 0; i--) {
+
             System.out.println(aux[i]);
-            
+
         }
 
     }
-   
-    
-    //H) Rellenar la pila
-    public void rellenar(T[] aux){
-        
+
+    //H) Rellenar la pila  //SIN ACABAR
+    public void rellenar(T[] array) {
+
         List<T> pilaAux = new ArrayList<>();
-        
+
     }
     
     
+    //I) Sacar elementos de la pila y los devuelve en una rray de object
+    public Object[] sacarElementos() { //ACABAR
+
+        Object[] prueba = new Object[this.nuevaPila.size()];
+
+        return prueba;
+    }
+    
+
+
     public List<T> getNuevaPila() {
         return nuevaPila;
     }
