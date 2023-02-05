@@ -6,7 +6,6 @@ package pila;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
@@ -18,12 +17,12 @@ public class Pila<T> {
 
     private List<T> nuevaPila;
 
+    private int tamanio;
+
     public Pila(int tamanio) {
 
-        tamanio = Math.abs(tamanio);
-
-        this.nuevaPila = new ArrayList<>(tamanio);
-
+        this.nuevaPila = new ArrayList<>();
+        this.tamanio = tamanio;
     }
 
     //B) Push de la pila (apilar elemento (en inglés push), lo inserta donde proceda)
@@ -34,9 +33,10 @@ public class Pila<T> {
     }
 
     //C) Pop de la pila (desapilar (en inglés pop), que saca el elemento que toque.)
-    public void pilaPop() { //SIN ACABAR
+    public void pilaPop() {
 
-        //t[]
+        this.nuevaPila.remove(this.nuevaPila.size() - 1);
+
     }
 
     //D) Pila vacia (Saber si la pila está vacía.)
@@ -47,9 +47,9 @@ public class Pila<T> {
     }
 
     //E) Pila llena (Saber si la pila está llena.)
-    public boolean pilaLlena(int tamanio) {
+    public boolean pilaLlena() {
 
-        if (this.nuevaPila.size() == tamanio) {
+        if (this.nuevaPila.size() == this.tamanio) {
 
             return true;
 
@@ -69,11 +69,11 @@ public class Pila<T> {
     }
 
     //G) Mostrar por consola los elementos 
-    public void pilaMostrarElementos(T[] aux) {
+    public void pilaMostrarElementos() {
 
-        for (int i = aux.length - 1; i > 0; i--) {
+        for (int i = this.nuevaPila.size() - 1; i >= 0; i--) {
 
-            System.out.println(aux[i]);
+            System.out.println(this.nuevaPila.get(i));
 
         }
 
@@ -82,20 +82,32 @@ public class Pila<T> {
     //H) Rellenar la pila  //SIN ACABAR
     public void rellenar(T[] array) {
 
-        List<T> pilaAux = new ArrayList<>();
+        //Quitar primero todo lo de la pila
+        this.nuevaPila.removeAll(nuevaPila);
 
+        
+        //Añadir lo del array
+        
+        for (int i = 0; i < array.length; i++) {
+
+            this.nuevaPila.add(array[i]);
+
+        }
     }
-    
-    
+
     //I) Sacar elementos de la pila y los devuelve en una rray de object
     public Object[] sacarElementos() { //ACABAR
 
-        Object[] prueba = new Object[this.nuevaPila.size()];
+        Object[] prueba = this.nuevaPila.toArray();
+        
+        this.nuevaPila.removeAll(nuevaPila);
 
         return prueba;
+        
+        
     }
     
-
+  
 
     public List<T> getNuevaPila() {
         return nuevaPila;
